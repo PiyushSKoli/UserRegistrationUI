@@ -1,0 +1,252 @@
+<!-- <p-dialog header="Add User" [(visible)]=""[style]="{width: '450px'}" [responsive]="true" styleClass="active1">
+  <label for="name">Name</label> 
+  <input type="text" pInputText /><br>
+
+  <label for="name">Surname</label> 
+  <input type="text" pInputText /><br>
+
+  <label for="name">Email</label> 
+  <input type="text" pInputText /><br>
+
+  <label for="name">Password</label> 
+  <input type="password" pPassword /><br>
+
+  <label for="name">City</label> 
+  <input type="text" pInputText /><br>
+
+  <label for="name">Designation</label> 
+  <input type="text" pInputText /><br>
+
+  <label for="name">DOB</label>
+  <p-calendar [(ngModel)]="date" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2030" inputId="navigators"></p-calendar>
+</p-dialog> -->
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text">
+</p-confirmDialog>
+
+
+<p-dialog [(visible)]="display" [style]="{width: '450px'}" header="Add User" [modal]="true" styleClass="p-fluid">
+  <ng-template pTemplate="content">
+    <div class="p-field">
+      <label for="name">Name</label>
+      <input type="text" pInputText id="name" name="name" [(ngModel)]="name" required autofocus />
+      <!-- <small class="p-error" >Name is required.</small> -->
+    </div>
+
+    <div class="p-field">
+      <label for="surname">Surname</label>
+      <input type="text" pInputText id="surname" name="surname" [(ngModel)]="surname" required autofocus />
+      <!-- <small class="p-error" >Surname is required.</small> -->
+    </div>
+
+    <div class="p-field">
+      <label for="email">Email</label>
+      <input type="email" pInputText id="email" [(ngModel)]="email" required autofocus />
+      <!-- <small class="p-error" >Email is required.</small> -->
+    </div>
+
+    <div class="p-field">
+      <label for="password">Password</label>
+      <input type="password" pInputText id="password" [(ngModel)]="password" required autofocus />
+      <!-- <small class="p-error" >Password is required.</small> -->
+    </div>
+
+    <div class="p-field">
+      <label for="city">City</label>
+      <input type="text" pInputText id="city" [(ngModel)]="city" required autofocus />
+      <!-- <small class="p-error" >Name is required.</small> -->
+    </div>
+
+    <div class="p-field">
+      <label for="dob">DOB</label>
+      <input type="date" pInputText id="dob" [(ngModel)]="dob" required autofocus />
+      <!-- <small class="p-error" >Name is required.</small> -->
+    </div>
+
+
+    <div class="p-field">
+      <label for="designation">Designation</label>
+      <input type="text" pInputText id="designation" [(ngModel)]="designation" required autofocus />
+      <!-- <small class="p-error" >Surname is required.</small> -->
+    </div>
+
+    <div class="p-field">
+      <label for="contactNumber">Contact Number</label>
+      <input type="number" pInputText id="contactNumber" [(ngModel)]="contactNumber" required autofocus />
+      <!-- <small class="p-error" >Name is required.</small> -->
+    </div>
+
+    <div class="p-field">
+      <label for="pinCode">Pin Code</label>
+      <input type="number" pInputText id="pinCode" [(ngModel)]="pinCode" required autofocus />
+      <!-- <small class="p-error" >Surname is required.</small> -->
+    </div>
+
+    <div class="p-field">
+      <label for="joiningDate">Joining Date</label>
+      <input type="date" pInputText id="joiningDate" [(ngModel)]="joiningDate" required autofocus />
+      <!-- <small class="p-error" >Surname is required.</small> -->
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+    <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="addUser()"></button>
+  </ng-template>
+</p-dialog>
+
+
+
+
+
+
+<p-dialog [(visible)]="displayUpdate" [style]="{width: '450px'}" header="Update User" [modal]="true"
+  styleClass="p-fluid">
+  <ng-template pTemplate="content">
+    <div class="p-field">
+      <label for="name">Name</label>
+      <input type="text" pInputText id="name" name="name" [(ngModel)]="name" required autofocus />
+      <!-- <small class="p-error" >Name is required.</small> -->
+    </div>
+
+    <div class="p-field">
+      <label for="surname">Surname</label>
+      <input type="text" pInputText id="surname" name="surname" [(ngModel)]="surname" required autofocus />
+      <!-- <small class="p-error" >Surname is required.</small> -->
+    </div>
+
+    <div class="p-field">
+      <label for="email">Email</label>
+      <input type="email" pInputText id="email" name="email" [(ngModel)]="email" required autofocus />
+      <!-- <small class="p-error" >Email is required.</small> -->
+    </div>
+
+    <div class="p-field">
+      <label for="password">Password</label>
+      <input type="password" pInputText id="password" name="password" [(ngModel)]="password" required autofocus />
+      <!-- <small class="p-error" >Password is required.</small> -->
+    </div>
+
+    <div class="p-field">
+      <label for="city">City</label>
+      <input type="text" pInputText id="city" name="city" [(ngModel)]="city" required autofocus />
+      <!-- <small class="p-error" >Name is required.</small> -->
+    </div>
+
+    <div class="p-field">
+      <label for="dob">DOB</label>
+      <input type="date" pInputText id="dob" name="dob" [(ngModel)]="dob" required autofocus />
+      <!-- <small class="p-error" >Name is required.</small> -->
+    </div>
+
+
+    <div class="p-field">
+      <label for="designation">Designation</label>
+      <input type="text" pInputText id="designation" name="designation" [(ngModel)]="designation" required autofocus />
+      <!-- <small class="p-error" >Surname is required.</small> -->
+    </div>
+
+    <div class="p-field">
+      <label for="contactNumber">Contact Number</label>
+      <input type="number" pInputText id="contactNumber" name="contactNumber" [(ngModel)]="contactNumber" required
+        autofocus />
+      <!-- <small class="p-error" >Name is required.</small> -->
+    </div>
+
+    <div class="p-field">
+      <label for="pinCode">Pin Code</label>
+      <input type="number" pInputText id="pinCode" name="pinCode" [(ngModel)]="pinCode" required autofocus />
+      <!-- <small class="p-error" >Surname is required.</small> -->
+    </div>
+
+    <div class="p-field">
+      <label for="joiningDate">Joining Date</label>
+      <input type="date" pInputText id="joiningDate" name="joiningDate" [(ngModel)]="joiningDate" required autofocus />
+      <!-- <small class="p-error" >Surname is required.</small> -->
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+    <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="editUser()"></button>
+  </ng-template>
+</p-dialog>
+
+
+
+
+<div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">NeoSoft</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Registration Form</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> --> 
+            <!-- <span class="p-input-icon-left"> -->
+              <!-- <i class="pi pi-search"></i> -->
+              <input pInputText type="text" (input)="dt.filterGlobal($event.target, 'contains')" placeholder="Search..." />
+            <!-- </span> -->       
+          <button class="btn btn-outline-primary" type="submit" (click)="clearModel()" (click)="showDialog()"
+            icon="pi pi-info-circle" label="Show">Add</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</div>
+<br>
+
+<div>
+
+  
+  <div class="card">
+
+
+    <p-table #dt [value]="allUsersResponse" sortMode="multiple" [scrollable]="true" scrollHeight="400px"
+      selectionMode="single" [(contextMenuSelection)]="selectedUser" [globalFilterFields]="['name','surname','pinCode']"
+      [contextMenu]="cm" dataKey="id">
+     
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="id">#<p-sortIcon field="id" id="id"></p-sortIcon>
+          </th>
+          <th>UserId</th>
+          <th>Name</th>
+          <th>Surname</th>
+          <th>Email</th>
+          <th pSortableColumn="dob">DOB<p-sortIcon field="dob"></p-sortIcon>
+          </th>
+          <th>City</th>
+          <th>Contact Number</th>
+          <th>Pin Code</th>
+          <th>Designation</th>
+          <th pSortableColumn="joiningDate">Joining Date<p-sortIcon field="joiningDate"></p-sortIcon>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-user>
+        <tr [pContextMenuRow]="user">
+          <td>{{user.id}}</td>
+          <td>{{user.userId}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.surname}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.dob}}</td>
+          <td>{{user.city}}</td>
+          <td>{{user.contactNumber}}</td>
+          <td>{{user.pinCode}}</td>
+          <td>{{user.designation}}</td>
+          <td>{{user.joiningDate}}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <p-contextMenu #cm [model]="items"></p-contextMenu>
+</div>
