@@ -13,6 +13,7 @@ import {ConfirmationService} from 'primeng/api';
 })
 export class UserComponent implements OnInit {
 
+  
   allUsersResponse: any[];
   allUsersResponse1: User[];
   userId:any;

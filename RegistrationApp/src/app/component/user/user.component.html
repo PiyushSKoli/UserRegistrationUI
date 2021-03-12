@@ -189,11 +189,7 @@
           </li>
         </ul>
         <form class="d-flex">
-          <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> --> 
-            <!-- <span class="p-input-icon-left"> -->
-              <!-- <i class="pi pi-search"></i> -->
-              <!-- <input pInputText type="text" (input)="dt.filterGlobal($event.target, 'contains')" placeholder="Search..." /> -->
-            <!-- </span> -->       
+          <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->      
           <button class="btn btn-outline-primary" type="submit" (click)="clearModel()" (click)="showDialog()"
             icon="pi pi-info-circle" label="Show">Add</button>
         </form>
@@ -208,11 +204,17 @@
   
   <div class="card">
 
-
-    <p-table #dt [value]="allUsersResponse" sortMode="multiple" [scrollable]="true" scrollHeight="400px"
+    <!-- [globalFilterFields]="['name','surname','pinCode']" -->
+    <p-table #dt1 [value]="allUsersResponse" sortMode="multiple" [scrollable]="true" scrollHeight="400px"
       selectionMode="single" [(contextMenuSelection)]="selectedUser" [globalFilterFields]="['name','surname','pinCode']"
       [contextMenu]="cm" dataKey="id">
-     
+
+      <ng-template pTemplate="caption">
+        <div style="text-align: right">        
+            <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
+            <input pInputText type="text" size="30" placeholder="Name,Surname,Pincode" (input)="dt1.filterGlobal($event.target.value, 'contains')" style="width:auto">
+        </div>
+    </ng-template>
       <ng-template pTemplate="header">
         <tr>
           <th pSortableColumn="id">#<p-sortIcon field="id" id="id"></p-sortIcon>
