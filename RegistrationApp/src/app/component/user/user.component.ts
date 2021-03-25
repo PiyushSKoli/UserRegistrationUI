@@ -5,6 +5,7 @@ import { MenuItem, MessageService ,ConfirmEventType} from 'primeng/api';
 import { User } from 'src/app/model/User';
 import { ToastrService } from 'ngx-toastr';
 import {ConfirmationService} from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -37,8 +38,9 @@ export class UserComponent implements OnInit {
   contactNumber:any;
   dob:any;
   pinCode:any;
+  token:string;
 
-  constructor(private userService:UserService, private toastrService:ToastrService,private confirmationService: ConfirmationService, private messageService: MessageService) { }
+  constructor(private router: Router,private userService:UserService, private toastrService:ToastrService,private confirmationService: ConfirmationService, private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.getAllUsersData();
@@ -47,9 +49,11 @@ export class UserComponent implements OnInit {
       {label: 'Edit', icon: 'pi pi-fw pi-pencil', command: () => this.showUpdateDialog()},
       {label: 'Delete', icon: 'pi pi-fw pi-times', command: () => this.confirm2()}
   ];
+      this.token = localStorage.getItem('token');
   }
 
   getAllUsersData() {
+    console.log(this.token = localStorage.getItem('token'));
     this.userService.getAllUsers().subscribe(response => {
       this.allUsersResponse = response['data'];
     })
@@ -183,5 +187,12 @@ hideDialog() {
             }
         }
     });
+}
+
+logout(){
+  localStorage.clear();
+  localStorage.removeItem("token");
+  this.router.navigateByUrl('/login');
+  this.toastrService.success('Logout Successfully....!');
 }
 }

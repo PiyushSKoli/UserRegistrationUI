@@ -17,11 +17,17 @@ import {CalendarModule} from 'primeng/calendar';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import { ToastrModule } from 'ngx-toastr';
 import {ConfirmationService,MessageService} from 'primeng/api';
+import { LoginComponent } from './component/login/login.component';
+import {DropdownModule} from 'primeng/dropdown';
+import { ProfileComponent } from './component/profile/profile.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent
+    UserComponent,
+    LoginComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +43,8 @@ import {ConfirmationService,MessageService} from 'primeng/api';
     PasswordModule,
     CalendarModule,
     ToastrModule.forRoot(),
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    DropdownModule
   ],
   providers: [ConfirmationService,MessageService],
   bootstrap: [AppComponent]

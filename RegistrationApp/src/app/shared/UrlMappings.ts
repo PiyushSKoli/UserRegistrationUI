@@ -6,4 +6,8 @@ export class UrlMappings {
     public static saveUpdateUserUrl="users/saveUpdateUser";
 
     public static getByUserIdUrl="users/getByUserId";
+
+   // public static loginUrl="users/login";
+
+    public static loginUrl="users/authenticate";
 }
