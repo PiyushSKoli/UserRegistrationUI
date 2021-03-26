@@ -11,4 +11,5 @@ export class User{
     userId:string;
     dob:Date
     pinCode:number;
+    role:string;
 }

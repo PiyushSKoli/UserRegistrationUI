@@ -39,18 +39,30 @@ export class UserComponent implements OnInit {
   dob:any;
   pinCode:any;
   token:string;
+  userName:string;
+  adminName:string;
+  adminSurname:string;
 
   constructor(private router: Router,private userService:UserService, private toastrService:ToastrService,private confirmationService: ConfirmationService, private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.getAllUsersData();
-
+    this.getProfile();
     this.items = [
       {label: 'Edit', icon: 'pi pi-fw pi-pencil', command: () => this.showUpdateDialog()},
       {label: 'Delete', icon: 'pi pi-fw pi-times', command: () => this.confirm2()}
   ];
       this.token = localStorage.getItem('token');
   }
+
+  getProfile(){
+    this.userName=localStorage.getItem('userName');
+    this.userService.getByUserId(this.userName).subscribe(response=>{
+      console.log(response);
+      this.adminName=response['data']['name'];
+     this.adminSurname=response['data']['surname'];
+    })
+    }
 
   getAllUsersData() {
     console.log(this.token = localStorage.getItem('token'));

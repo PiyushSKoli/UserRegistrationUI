@@ -17,15 +17,15 @@ export class UserService {
   }
 
   public deleteUser(id): Observable<any> {
-    return this.http.delete(environment.baseUrl+UrlMappings.deleteUserUrl+"/"+id,{ headers: new HttpHeaders({'Authorization': 'Bearer ' + localStorage.getItem('token')})});
+    return this.http.delete(environment.baseUrl+UrlMappings.deleteUserUrl+"/"+id,{ headers: new HttpHeaders({'Authorization': 'Bearer '+localStorage.getItem('token')})});
   }
 
   public saveUser(userData:any){
-    return this.http.post(environment.baseUrl+UrlMappings.saveUpdateUserUrl,userData,{ headers: new HttpHeaders({'Authorization': 'Bearer ' + localStorage.getItem('token')})});
+    return this.http.post(environment.baseUrl+UrlMappings.saveUpdateUserUrl,userData,{ headers: new HttpHeaders({'Authorization': 'Bearer '+localStorage.getItem('token')})});
   }
 
   public getByUserId(userId): Observable<any> {
-    return this.http.get(environment.baseUrl+UrlMappings.getByUserIdUrl+"/"+userId,{ headers: new HttpHeaders({'Authorization': 'Bearer ' + localStorage.getItem('token')})});
+    return this.http.get(environment.baseUrl+UrlMappings.getByUserIdUrl+"/"+userId,{ headers: new HttpHeaders({'Authorization': 'Bearer '+localStorage.getItem('token')})});
   }
 
   public login(login:any){

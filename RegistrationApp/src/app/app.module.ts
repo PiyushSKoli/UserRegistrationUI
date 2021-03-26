@@ -20,6 +20,7 @@ import {ConfirmationService,MessageService} from 'primeng/api';
 import { LoginComponent } from './component/login/login.component';
 import {DropdownModule} from 'primeng/dropdown';
 import { ProfileComponent } from './component/profile/profile.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { ProfileComponent } from './component/profile/profile.component';
     CalendarModule,
     ToastrModule.forRoot(),
     ConfirmDialogModule,
-    DropdownModule
+    DropdownModule,
+    BsDatepickerModule.forRoot()
   ],
   providers: [ConfirmationService,MessageService],
   bootstrap: [AppComponent]

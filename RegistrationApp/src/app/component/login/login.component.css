@@ -1,3 +1,26 @@
+/* .m{
+    margin-top: 20%;
+}
+
+.w{
+    width: 70%;
+}
+
+input{
+    border: 1px solid grey;
+}
+
+.card{
+    background-color:#e6ecff;
+    border: none;
+    font-family: 'Merriweather', serif;
+}
+
+h4{
+    font-family: 'Courgette', cursive;
+    font-size: 1.7rem;
+} */
+
 .m{
     margin-top: 20%;
 }
@@ -19,4 +42,14 @@ input{
 h4{
     font-family: 'Courgette', cursive;
     font-size: 1.7rem;
+}
+
+
+
+
+.container-fluid{
+    margin: 0% !important;
+    box-sizing: border-box;
+    padding: 0%;
+    
 }

@@ -1,7 +1,7 @@
-<div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light pad">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">NeoSoft</a>
+        <!-- <a class="navbar-brand" href="#">NeoSoft</a> -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -9,17 +9,134 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Welcome </a>
+              <a class="nav-link active" aria-current="page">Welcome {{profileName+' '+profileSurname}} </a>
             </li>
           </ul>
           <form class="d-flex">
-            <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->      
-            <button class="btn btn-outline-primary" type="submit"
-              icon="pi pi-info-circle" label="Show">Add</button>
-              <button class="btn btn-outline-primary" type="submit"
-              icon="pi pi-info-circle" label="Show" (click)="logout()">Logout</button>
+            <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+            <!-- <button class="btn btn-outline-primary me-2" type="submit" icon="pi pi-info-circle" label="Show">Edit
+              Profile</button> -->
+            <button class="btn btn-outline-primary" type="submit" icon="pi pi-info-circle" label="Show"
+              (click)="logout()">Logout</button>
           </form>
         </div>
       </div>
     </nav>
+  </div>
+  
+  <div class="container-fluid mt-4 pad">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between">
+        <h5>User Profile</h5>
+        <button class="btn btn-outline-primary" type="submit" icon="pi pi-info-circle" label="Show" (click)="editFeild()">Edit
+          Profile</button>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="row m-0">
+            <div class="col-sm-4 p-0 pe-2">
+              <div class="form-group my-1">
+                <label for="userId" class="mr-2">User Id</label>
+                <input type="text" class="form-control form-control-sm" id="userId" name="id" required
+                [(ngModel)]="userName" [disabled]="isDisabled">
+              </div>
+            </div>
+            <div class="col-sm-4 p-0 pe-2">
+              <div class="form-group my-1">
+                <label for="userNameId" class="mr-2">User Name</label>
+                <input type="text" class="form-control form-control-sm" id="userNameId" name="userName" required
+                [(ngModel)]="name" [disabled]="disabled">
+              </div>
+            </div>
+            <div class="col-sm-4 p-0">
+              <div class="form-group my-1">
+                <label for="surNameId">Sur Name</label>
+                <input type="text" class="form-control form-control-sm" id="surNameId" name="surname"
+                [(ngModel)]="surname" [disabled]="disabled">
+              </div>
+            </div>
+          </div>
+          <div class="row m-0">
+            <div class="col-sm-4 p-0 pe-2">
+              <div class="form-group my-1">
+                <label for="dobId">Date of Birth</label>
+                <input type="text" class="form-control form-control-sm" id="dobId" placeholder="Datepicker"
+                  bsDatepicker
+                  [bsConfig]="{ isAnimated: true , dateInputFormat: 'YYYY-MM-DD', containerClass:'theme-dark-blue'}"
+                  placement="top" name="dob" [disabled]="disabled" [(ngModel)]="dob">
+              </div>
+            </div>
+            <div class="col-sm-4 p-0 pe-2">
+              <div class="form-group my-1">
+                <label for="cityId">City</label>
+                <input type="text" class="form-control form-control-sm" id="cityId" name="city"
+                [(ngModel)]="city" [disabled]="disabled">
+              </div>
+            </div>
+            <div class="col-sm-4 p-0">
+              <div class="form-group my-1">
+                <label for="emailId">Email Id</label>
+                <input type="text" class="form-control form-control-sm" id="emailId" name="email"
+                [(ngModel)]="email" [disabled]="disabled">
+              </div>
+            </div>
+          </div>
+          <div class="row m-0">
+            <div class="col-sm-4 p-0 pe-2">
+              <div class="form-group my-1">
+                <label for="contactNumberId">Contact Number</label>
+                <input type="text" class="form-control form-control-sm" id="contactNumberId" name="contactNumber"
+                [(ngModel)]="contactNumber" [disabled]="disabled">
+              </div>
+            </div>
+            <div class="col-sm-4 p-0 pe-2">
+              <div class="form-group my-1">
+                <label for="designationId">Designation</label>
+                <input type="text" class="form-control form-control-sm" id="designationId" name="designation"
+                [(ngModel)]="designation" [disabled]="isDisabled">
+              </div>
+            </div>
+            <div class="col-sm-4 col-sm-4-1 p-0">
+              <div class="form-group my-1">
+                <label for="joiningDateId">Joining Date</label>
+                <input type="text" class="form-control form-control-sm" id="joiningDateId" name="joiningDate"
+                [(ngModel)]="joiningDate" [disabled]="isDisabled">
+              </div>
+            </div>
+          </div>
+          <div class="row m-0">
+            <div class="col-sm-4 p-0 pe-2">
+              <div class="form-group my-1">
+                <label for="pincodeId">Pincode</label>
+                <input type="text" class="form-control form-control-sm" id="pincodeId" name="pinCode"
+                [(ngModel)]="pinCode" [disabled]="disabled"> 
+              </div>
+            </div>
+            <div class="col-sm-4 p-0 pe-2">
+              <div class="form-group my-1">
+                <label for="passwordId">Password</label>
+                <input type="text" class="form-control form-control-sm" id="passwordId" name="password"
+                [(ngModel)]="password" [disabled]="disabled">
+              </div>
+            </div>
+            <div class="col-sm-4 p-0">
+              <div class="form-group my-1">
+                <label for="roleId">Role</label>
+                <input type="text" class="form-control form-control-sm" id="roleId" name="role"
+                [(ngModel)]="role" [disabled]="isDisabled">
+              </div>
+            </div>
+          </div>
+          <div class="m-0 d-flex justify-content-center mt-3">
+            <button class="btn btn-primary btn-sm me-2" type="submit" (click)="editUser()">Save</button>
+            <button class="btn btn-primary btn-sm" type="reset" >Reset</button>
+            <!-- <p-button label="Save" icon="pi pi-check" data-dismiss="modal" styleClass="p-button-sm" class="mr-2"
+              [disabled]="isDisabled"></p-button>
+            <p-button label="Reset" icon="pi pi-times" type="reset" styleClass="p-button-sm" class="m-0"
+              [disabled]="isDisabled">
+            </p-button> -->
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
