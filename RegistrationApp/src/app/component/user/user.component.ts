@@ -42,6 +42,7 @@ export class UserComponent implements OnInit {
   userName:string;
   adminName:string;
   adminSurname:string;
+  role:string;
 
   constructor(private router: Router,private userService:UserService, private toastrService:ToastrService,private confirmationService: ConfirmationService, private messageService: MessageService) { }
 
@@ -86,6 +87,7 @@ export class UserComponent implements OnInit {
     this.userData.joiningDate=this.joiningDate;
     this.userData.password=this.password;
     this.userData.pinCode=this.pinCode;
+    this.userData.role=this.role;
 
     this.userService.saveUser(this.userData).subscribe(response=>{ 
       if(response['data']=="Success"){
@@ -130,6 +132,7 @@ showUpdateDialog() {
       this.contactNumber=this.userResponseByUserId.contactNumber;
       this.pinCode=this.userResponseByUserId.pinCode;
       this.joiningDate=this.userResponseByUserId.joiningDate;
+      this.role=this.userResponseByUserId.role;
   })
 }
 
@@ -153,6 +156,7 @@ hideDialog() {
     this.userData.joiningDate=this.joiningDate;
     this.userData.password=this.password;
     this.userData.pinCode=this.pinCode;
+    this.userData.role=this.role;
 
     this.userService.saveUser(this.userData).subscribe(response=>{ 
       if(response['data']=="Success"){
@@ -177,6 +181,7 @@ hideDialog() {
     this.dob="";
     this.joiningDate="";
     this.designation="";
+    this.role="";
   }
 
   confirm2() {

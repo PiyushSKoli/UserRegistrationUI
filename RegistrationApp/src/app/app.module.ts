@@ -21,6 +21,7 @@ import { LoginComponent } from './component/login/login.component';
 import {DropdownModule} from 'primeng/dropdown';
 import { ProfileComponent } from './component/profile/profile.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { AuthenticationGuard } from './Guard/authentication.guard';
 
 
 @NgModule({
@@ -48,7 +49,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     DropdownModule,
     BsDatepickerModule.forRoot()
   ],
-  providers: [ConfirmationService,MessageService],
+  providers: [ConfirmationService,MessageService,AuthenticationGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

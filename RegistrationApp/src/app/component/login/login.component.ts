@@ -44,11 +44,13 @@ export class LoginComponent implements OnInit {
           this.toastrService.success('Login Successfully....!');
           localStorage.setItem('token',(response['data']['token']));
           localStorage.setItem('userName',response['data']['userName']);
+          localStorage.setItem('userRole',response['data']['userRole']);
         }else{
           this.router.navigateByUrl('/profile');
           this.toastrService.success('Login Successfully....!');
           localStorage.setItem('token',(response['data']['token']));
           localStorage.setItem('userName',response['data']['userName']);
+          localStorage.setItem('userRole',response['data']['userRole']);
         }
       }else{
         this.toastrService.error("Incorrect Username/Password");
